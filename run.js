@@ -1,3 +1,4 @@
 var ogre = require('./');
-ogre.createServer().listen(3000)
-console.log('Ogre listening on port 3000')
+var port = process.env.PORT || 3000;
+ogre.createServer().listen(port)
+console.log('Ogre listening on port ' + port)
