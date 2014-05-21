@@ -72,11 +72,11 @@ exports.createServer = function (opts) {
       ogr = ogr2ogr(JSON.parse(req.body.json))
     }
 
-    var sf = ogr.skipfailures().format('shp').stream()
+    var sf = ogr.skipfailures().format('KML').stream()
     sf.on('error', next)
 
-    res.header('Content-Type', 'application/zip')
-    res.header('Content-Disposition', 'filename='+ (req.body.outputName || 'ogre.zip'))
+    res.header('Content-Type', 'application/kml')
+    res.header('Content-Disposition', 'filename='+ (req.body.outputName || 'ogre.kml'))
     sf.pipe(res)
   })
 
